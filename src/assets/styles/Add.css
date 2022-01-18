@@ -4,6 +4,14 @@
 	justify-content: center;
 }
 
+.box {
+	display: flex;
+}
+
 .activity {
 	color: black;
+}
+
+.table-responsive {
+	display: flex;
 }
