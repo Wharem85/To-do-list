@@ -4,15 +4,13 @@ import Add from '../components/Add';
 import TableActivity from '../components/TableActivity';
 import '../assets/styles/App.css';
 
-
-
 const App = () => {
   const [rows, setRows] = useState([]);
 
-  const handleSubmit =(event) => {
-		event.preventDefault();
+  function handleOnEnter(text) {
+		console.log("ingresar", text);
     let newArray = [...rows]
-    newArray.push(createData(event.target[0].value))
+    newArray.push(createData(text))
     setRows(newArray);
 	}
 
@@ -22,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Add handleSubmit={handleSubmit} />
+      <Add handleOnEnter={handleOnEnter}/>
       <TableActivity rows={rows}/>
     </div>
   );

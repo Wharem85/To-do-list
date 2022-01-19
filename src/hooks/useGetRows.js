@@ -1,11 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+
+const initialState = {
+	row: [],
+}
 
 const useGetRows = () => {
-	const [rows, setRows] = useStete([]);
+	const [state, setState] = useState(initialState)
 
-	useEffect(async () => {
-		setRows()
-	}, [])
+	const removeRows = (payload) => {
+		setState({
+			...state,
+			row: state.row.filter(items => items.id != payload.id),
+		})
+	}
+
+	return {
+		state,
+		removeRows
+	};
 };
 
 export default useGetRows;
