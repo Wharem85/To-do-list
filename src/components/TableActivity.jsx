@@ -6,10 +6,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Checkbox from '@mui/material/Checkbox';
 import Delete from '../assets/icons/delete.png';
 import useGetRows from '../hooks/useGetRows';
 import AppContext from '../context/AppContext';
 import '../assets/styles/Table.css';
+
+function checkbox() {
+	
+}
+
+const label = { };
 
 const TableActivity = ({rows, row}) => {
 	const { removeRows } = useContext(AppContext);
@@ -24,6 +31,7 @@ const TableActivity = ({rows, row}) => {
 				<Table sx={{ minWidth: 650 }} aria-label="simple table">
 					<TableHead>
 						<TableRow>
+							<TableCell></TableCell>
 							<TableCell align="center"><p className="title">Mis actividades</p></TableCell>
 							<TableCell></TableCell>
 							<TableCell align="center"><p className="title">Delete</p></TableCell>
@@ -37,6 +45,11 @@ const TableActivity = ({rows, row}) => {
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								value={info}
 							>
+								<TableRow>
+									<div className="checkBox">
+										<Checkbox {...label} />
+									</div>
+								</TableRow>
 								<TableCell align="center" component="th" scope="row">
 									<p className="date">{row.activity}</p>
 								</TableCell>

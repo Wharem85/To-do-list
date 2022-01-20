@@ -14,7 +14,13 @@
 
 .deleteButton {
 	width: 35px;
+	cursor: pointer;
+}
 
+.checkBox {
+	display: flex;
+	padding-top: 46px;
+	padding-left: 20px
 }
 
 .date {
