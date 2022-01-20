@@ -12,16 +12,12 @@ import useGetRows from '../hooks/useGetRows';
 import AppContext from '../context/AppContext';
 import '../assets/styles/Table.css';
 
-function checkbox() {
-	
-}
-
 const label = { };
 
-const TableActivity = ({rows, row}) => {
+const TableActivity = ({rows, dat}) => {
 	const { removeRows } = useContext(AppContext);
-	const handleRemove = row => {
-		removeRows(row);
+	const handleRemove = dat => {
+		removeRows(dat);
 	}
 	const [info] = useState('');
 
@@ -45,17 +41,15 @@ const TableActivity = ({rows, row}) => {
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								value={info}
 							>
-								<TableRow>
-									<div className="checkBox">
-										<Checkbox {...label} />
-									</div>
-								</TableRow>
+								<TableCell>
+									<Checkbox className="checkBox" {...label} />
+								</TableCell>
 								<TableCell align="center" component="th" scope="row">
 									<p className="date">{row.activity}</p>
 								</TableCell>
 								<TableCell></TableCell>
 								<TableCell align="center">
-									<img src={Delete} className="deleteButton" onClick={() => handleRemove(row)} alt="delete" />
+									<img src={Delete} className="deleteButton" onClick={() => handleRemove(dat)} alt="delete" />
 								</TableCell>
 							</TableRow>
 						))}

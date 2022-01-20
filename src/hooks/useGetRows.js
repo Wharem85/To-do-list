@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const initialState = {
-	row: [],
+	dat: [],
 }
 
 const useGetRows = () => {
@@ -10,7 +10,7 @@ const useGetRows = () => {
 	const removeRows = (payload) => {
 		setState({
 			...state,
-			row: state.row.filter(items => items.id != payload.id),
+			dat: state.dat.filter(items => items.id != payload.id),
 		})
 	}
 

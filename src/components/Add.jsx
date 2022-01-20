@@ -6,7 +6,6 @@ import '../assets/styles/Add.css';
 const Add = ({handleSubmit, handleOnEnter}) => {
 	const [text, setText] = useState('');
 
-
 	return (
 		<div className="content">
 			<Box sx={{width: 700, maxWidth: '100%'}}>
