@@ -15,6 +15,7 @@ const App = () => {
     let newArray = [...rows]
     newArray.push(createData(text))
     setRows(newArray);
+    console.log(newArray)
 	}
 
   function createData(activity) {

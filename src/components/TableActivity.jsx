@@ -8,17 +8,18 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import Delete from '../assets/icons/delete.png';
-import useGetRows from '../hooks/useGetRows';
 import AppContext from '../context/AppContext';
 import '../assets/styles/Table.css';
 
 const label = { };
 
-const TableActivity = ({rows, dat}) => {
+const TableActivity = ({rows}) => {
 	const { removeRows } = useContext(AppContext);
+
 	const handleRemove = dat => {
 		removeRows(dat);
 	}
+
 	const [info] = useState('');
 
 	return (
@@ -37,7 +38,7 @@ const TableActivity = ({rows, dat}) => {
 						{rows.map((row, idx) => (
 							<TableRow
 								row={row}
-								key={row.activity.idx}
+								key={row.activity}
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 								value={info}
 							>
@@ -45,11 +46,11 @@ const TableActivity = ({rows, dat}) => {
 									<Checkbox className="checkBox" {...label} />
 								</TableCell>
 								<TableCell align="center" component="th" scope="row">
-									<p className="date">{row.activity}</p>
+									<p className="date">{row.activity.idx}</p>
 								</TableCell>
 								<TableCell></TableCell>
 								<TableCell align="center">
-									<img src={Delete} className="deleteButton" onClick={() => handleRemove(dat)} alt="delete" />
+									<img src={Delete} className="deleteButton" onClick={() => handleRemove(row)} alt="delete" />
 								</TableCell>
 							</TableRow>
 						))}

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import InputEmoji from 'react-input-emoji';
 import '../assets/styles/Add.css';
 
-const Add = ({handleSubmit, handleOnEnter}) => {
+const Add = ({handleOnEnter}) => {
 	const [text, setText] = useState('');
 
 	return (
